@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Roboto-Regular';
+  src:     url('Roboto-Regular-webfont.eot') format('eot'),
+           url('Roboto-Regular-webfont.woff') format('woff'),
+           url('Roboto-Regular-webfont.svg') format('svg'),
+        url('Roboto-Regular-webfont.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src:     url('Roboto-Thin-webfont.eot') format('eot'),
+           url('Roboto-Thin-webfont.woff') format('woff'),
+           url('Roboto-Thin-webfont.svg') format('svg'),
+        url('Roboto-Thin-webfont.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src:     url('Roboto-Light-webfont.eot') format('eot'),
+           url('Roboto-Light-webfont.woff') format('woff'),
+           url('Roboto-Light-webfont.svg') format('svg'),
+        url('Roboto-Light-webfont.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src:     url('Roboto-Medium-webfont.eot') format('eot'),
+           url('Roboto-Medium-webfont.woff') format('woff'),
+           url('Roboto-Medium-webfont.svg') format('svg'),
+        url('Roboto-Medium-webfont.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Condensed';
+  src:     url('Roboto-Condensed-webfont.eot') format('eot'),
+           url('Roboto-Condensed-webfont.woff') format('woff'),
+           url('Roboto-Condensed-webfont.svg') format('svg'),
+        url('Roboto-Condensed-webfont.ttf') format('ttf');
+}
