@@ -13,92 +13,120 @@
 
     <link href="styles.css" type="text/css" rel="stylesheet"/>
     <link href="fonts/fonts.css" type="text/css" rel="stylesheet"/>
-    <link href="facescroller/general.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="facescroller/general.css" rel="stylesheet" type="text/css"/>-->
 
-    <script type="text/javascript" src="jquery/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="jquery/jquery.ui.touch-punch.min.js"></script>
-    <script type="text/javascript" src="facescroller/facescroll.js"></script>
+    <script type="text/javascript" src="plugins/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery/jquery.ui.touch-punch.min.js"></script>
+    <!--<script type="text/javascript" src="facescroller/facescroll.js"></script>-->
+    <script src="plugins/nicescroll/jquery.nicescroll.min.js"></script>
 
     <script type="text/javascript">
-        jQuery(function(){ // on page DOM load
-            $('#scroller1').alternateScroll();
-            $('#scroller2').alternateScroll();
-        })
+
+        // Initialize Nicescroller
+        $(document).ready(function() {
+            $("#scroller1").niceScroll({
+                cursorwidth: '8px',
+                autohidemode: true,
+                zindex: 999,
+                bouncescroll: true,
+                spacebarenabled: true,
+                cursoropacitymin: 0,
+                cursoropacitymax: 0.5,
+                cursorborder:0
+            });
+            $("#scroller2").niceScroll({
+                cursorwidth: '8px',
+                autohidemode: "scroll",
+                zindex: 999 ,
+                bouncescroll:true ,
+                spacebarenabled: true,
+                cursoropacitymin:0,
+                cursoropacitymax: 0.5,
+                cursorborder:0
+            });
+        });
+
+
+
     </script>
 
 </head>
 
 <body>
-<div class="wrapper_main">
-    <main class="sidebar">
-        <div class="app_icon">
-           <img src="Icons/Icon64x64.png" alt="AppIcon" style="width: 100%;padding: 9px"/>
+<div class="wrapper_main" align="center">
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="app_icon">
+               <img src="Icons/Icon64.png" alt="AppIcon" style="width: 100%;padding: 0px"/>
+            </div>
+            <div class="app_name_vertical">
+                <a title="Go to WiSMS website." href="#"><b style="color: rgba(255,255,255,0.3);">Wi</b>SMS</a>
+            </div>
         </div>
-        <div class="app_name_vertical">
-            <a title="Go to WiSMS website." href="#"><b style="color: rgba(255,255,255,0.3);">Wi</b>SMS</a>
-        </div>
-    </main>
 
-    <main class="contacts">
+        <div class="contacts">
+            <div class="container" style="width: 100%;height: 85%;padding-top: 3%">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a data-toggle="tab" href="#live"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+                    <li><a data-toggle="tab" href="#messages"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a></li>
+                    <li><a data-toggle="tab" href="#contactsList"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a></li>
+                </ul>
 
-        <div class="container" style="width: 100%;height: 80%;padding-top: 3%">
+                <div class="tab-content">
+                    <div id="live" class="tab-pane fade in active">
+                        <h3>Menu 1</h3>
+                        <p>Some content in menu 1.</p>
+                    </div>
 
-        <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a data-toggle="tab" href="#contactsList">Contacts</a></li>
-            <li><a data-toggle="tab" href="#live">Live</a></li>
-        </ul>
+                    <!--<div id="messages" class="tab-pane fade">-->
+                        <!--<div class= "contact_container" id="scroller3" style="font-size: 20px">-->
+                            <!--<div id="content_accordian2">-->
+                                <!--<div class="list-group panel" id="demo2">-->
+                                    <!--&lt;!&ndash; Contacts from JSON&ndash;&gt;-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-        <div class="tab-content">
-            <div id="contactsList" class="tab-pane fade in active">
-                <div class="contatcts_header">
-                    <div class="row">
-                        <div class="input-group" style="width: 100%">
-                            <input type="text" class="form-control" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">Find</button>
-                            </span>
-                        </div><!-- /input-group -->
-                    </div><!-- /.col-lg-6 -->
-                </div><!-- /.row -->
+                    <div id="contactsList" class="tab-pane fade">
+                        <div class="contatcts_header">
+                            <div class="row">
+                                <div class="input-group" style="width: 100%">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true" style="height: 20px"></span></button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                        </div><!-- /.row -->
 
-                <div class= "contact_container" id="scroller2" style="font-size: 20px">
-                        <div id="content_accordian">
-                            <div class="list-group panel" id="demo">
-                            <!--
-                                <a href="#contact1" class="list-group-item list-group-item" style="border-right: none;border-left: none" data-toggle="collapse" data-parent="#content_accordian">Contact Name 1</a>
-                                <div class="collapse" id="contact1">
-                                    <a href="javascript:;" class="list-group-item" onclick="AJAX_JSON_Req_For_Threader('Data/messages/messages.json','40404')">0123456789</a>
-                                    <a href="javascript:;" class="list-group-item">0123456789</a>
+                        <div class= "contact_container" id="scroller2" style="font-size: 20px">
+                            <div id="content_accordian">
+                                <div class="list-group panel" id="demo">
+                                    <!-- Contacts from JSON-->
                                 </div>
-                                <a href="#contact2" class="list-group-item list-group-item" style="border-right: none;border-left: none" data-toggle="collapse" data-parent="#content_accordian">Contact Name 2</a>
-                                <div class="collapse" id="contact2">
-                                    <a href="javascript:;" class="list-group-item">0123456789</a>
-                                    <a href="javascript:;" class="list-group-item">0123456789</a>
-                                </div>
-                            -->
                             </div>
                         </div>
+                    </div>
+
+
                 </div>
             </div>
-            <div id="live" class="tab-pane fade">
-                <h3>Menu 1</h3>
-                <p>Some content in menu 1.</p>
-            </div>
         </div>
-    </div>
-    </main>
 
-    <main class="sms_threaded">
+        <div class="sms_threaded">
         <div class="container" style="width: 100%;height: 100%;padding-top: 0%">
         <div class="thread_header">
            <div class="contact_data">
                <h2 id="c_title"><p style="text-align: center; font-size: larger">Wi-SMS</p></h2>
                <h4 id="c_number" style="line-height: 2px"></h4>
-               <hr>
+
            </div>
+            <hr>
         </div>
 
-        <div class="messages" id="scroller1"  style="margin-right: 0px;">
+        <div class="messages" id="scroller1"  style="margin: 0 10px;">
             <div id="intro" style="text-align: justify;width: 100%">
                 <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam aliquid aperiam commodi,
                     consectetur cum doloribus incidunt inventore ipsam magnam necessitatibus saepe sapiente, tempora.
@@ -114,8 +142,13 @@
 
             </section>
         </div>
+        <div class="">
+            <textarea class="msg-area"></textarea>
         </div>
-    </main>
+
+        </div>
+    </div>
+    </div>
 </div>
 </body>
 
